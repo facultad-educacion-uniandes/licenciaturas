@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Encuentra tu licenciatura ideal | Facultad de Educación Uniandes</title>
+  <style>
+    :root{
+      --green:#05b35c;
+      --dark:#18221d;
+      --cream:#f5f3ec;
+      --yellow:#f2d35e;
+      --text:#3d473f;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, Arial, sans-serif;
+      background:var(--cream);
+      color:var(--dark);
+    }
+    a{text-decoration:none;color:inherit}
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding:48px 24px 32px;
+    }
+    .blob1,.blob2{
+      position:absolute;
+      border-radius:999px;
+      filter:blur(60px);
+      z-index:0;
+    }
+    .blob1{width:280px;height:280px;background:rgba(5,179,92,.2);left:-110px;top:-100px}
+    .blob2{width:330px;height:330px;background:rgba(242,211,94,.35);right:-140px;top:90px}
+    .wrap{
+      max-width:1180px;
+      margin:auto;
+      position:relative;
+      z-index:1;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:42px;
+      align-items:center;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:rgba(255,255,255,.75);
+      border:1px solid rgba(24,34,29,.1);
+      border-radius:999px;
+      padding:10px 16px;
+      font-weight:800;
+      font-size:14px;
+      box-shadow:0 6px 18px rgba(0,0,0,.05);
+    }
+    h1{
+      font-size:72px;
+      line-height:.94;
+      letter-spacing:-3px;
+      margin:28px 0 22px;
+      max-width:760px;
+    }
+    .lead{
+      font-size:21px;
+      line-height:1.5;
+      color:var(--text);
+      max-width:710px;
+      margin:0;
+    }
+    .benefit{
+      margin-top:28px;
+      background:rgba(5,179,92,.1);
+      border:1px solid rgba(5,179,92,.3);
+      border-radius:28px;
+      padding:20px;
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      max-width:720px;
+    }
+    .iconbox{
+      width:48px;
+      height:48px;
+      border-radius:18px;
+      background:var(--green);
+      display:grid;
+      place-items:center;
+      font-size:24px;
+      flex:0 0 auto;
+    }
+    .eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:#047d44;
+      font-weight:900;
+      font-size:13px;
+      margin:0 0 4px;
+    }
+    .benefit h2{margin:0;font-size:26px;line-height:1.05}
+    .benefit p{margin:6px 0 0;color:var(--text);line-height:1.45}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    button,.btn{
+      border:0;
+      cursor:pointer;
+      border-radius:999px;
+      padding:16px 24px;
+      font-size:16px;
+      font-weight:900;
+      transition:.2s ease;
+    }
+    button:hover,.btn:hover{transform:translateY(-2px)}
+    .primary{background:var(--dark);color:white;box-shadow:0 12px 24px rgba(0,0,0,.14)}
+    .secondary{background:rgba(255,255,255,.75);border:1px solid rgba(24,34,29,.12)}
+    .side-card{
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(255,255,255,.75);
+      border-radius:36px;
+      padding:22px;
+      box-shadow:0 24px 60px rgba(0,0,0,.14);
+    }
+    .side-inner{
+      background:var(--dark);
+      color:white;
+      border-radius:28px;
+      padding:28px;
+    }
+    .side-top{display:flex;justify-content:space-between;gap:16px}
+    .side-inner h2{margin:8px 0 0;font-size:28px}
+    .mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+    .mini{
+      background:rgba(255,255,255,.1);
+      border-radius:18px;
+      padding:12px;
+      min-height:80px;
+      font-size:12px;
+      font-weight:900;
+      line-height:1.2;
+    }
+    .mini span{display:block;color:var(--green);font-size:21px;margin-bottom:8px}
+    .green-note{
+      margin-top:22px;
+      background:var(--green);
+      color:#102018;
+      border-radius:20px;
+      padding:16px;
+      line-height:1.4;
+    }
+    .diffs{
+      max-width:1180px;
+      margin:0 auto;
+      padding:18px 24px 24px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+    .diff{
+      background:white;
+      border:1px solid rgba(24,34,29,.1);
+      border-radius:26px;
+      padding:22px;
+      box-shadow:0 8px 18px rgba(0,0,0,.04);
+    }
+    .num{
+      background:var(--green);
+      width:44px;
+      height:44px;
+      display:grid;
+      place-items:center;
+      border-radius:17px;
+      font-weight:1000;
+      margin-bottom:14px;
+    }
+    .diff h3{font-size:21px;line-height:1.1;margin:0}
+    .diff p{color:#4d554f;line-height:1.45;margin:10px 0 0}
+    .quiz-section{
+      max-width:980px;
+      margin:0 auto;
+      padding:20px 24px 62px;
+      display:none;
+    }
+    .quiz-card{
+      background:white;
+      border:1px solid rgba(24,34,29,.1);
+      border-radius:36px;
+      padding:30px;
+      box-shadow:0 18px 40px rgba(0,0,0,.1);
+    }
+    .bar{height:12px;background:#e8e3d4;border-radius:999px;overflow:hidden;margin-bottom:26px}
+    .bar div{height:100%;background:var(--green);border-radius:999px;width:0;transition:.4s ease}
+    .q-meta{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .q-chip{
+      background:rgba(5,179,92,.1);
+      color:#047d44;
+      padding:10px 15px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:14px;
+    }
+    .back{
+      background:none;
+      padding:0;
+      color:#3d473f;
+      text-decoration:underline;
+      text-decoration-color:var(--green);
+      text-underline-offset:5px;
+      font-size:14px;
+    }
+    .question h2{font-size:44px;line-height:1.02;margin:22px 0 10px;letter-spacing:-1px}
+    .question p{font-size:18px;color:#5b625c;margin:0}
+    .answers{display:grid;gap:12px;margin-top:28px}
+    .answer{
+      width:100%;
+      text-align:left;
+      background:#f9f7ef;
+      border:1px solid rgba(24,34,29,.1);
+      border-radius:26px;
+      padding:20px;
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      align-items:center;
+      color:var(--dark);
+    }
+    .answer:hover{background:rgba(5,179,92,.1);border-color:var(--green)}
+    .answer span:first-child{font-weight:900;font-size:18px;line-height:1.25}
+    .arrow{
+      width:40px;
+      height:40px;
+      background:white;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
+    }
+    .results{display:none}
+    .result-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:22px;
+      margin-top:22px;
+    }
+    .result-main{
+      background:var(--dark);
+      color:white;
+      border-radius:32px;
+      padding:30px;
+    }
+    .result-head{display:flex;gap:16px;align-items:flex-start}
+    .result-icon{
+      width:66px;
+      height:66px;
+      display:grid;
+      place-items:center;
+      background:var(--green);
+      border-radius:22px;
+      font-size:34px;
+      flex:0 0 auto;
+    }
+    .result-main h2{font-size:42px;line-height:1;margin:6px 0 0}
+    .tagline{color:var(--yellow);font-size:21px;font-weight:900;line-height:1.25;margin-top:24px}
+    .match{color:rgba(255,255,255,.82);font-size:18px;line-height:1.5}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+    .tag{
+      background:rgba(255,255,255,.1);
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:13px;
+      font-weight:900;
+    }
+    .result-buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+    .green-btn{background:var(--green);color:#102018}
+    .ghost-btn{background:rgba(255,255,255,.1);color:white}
+    .side-results{display:grid;gap:14px}
+    .alt{
+      background:#f9f7ef;
+      border:1px solid rgba(24,34,29,.1);
+      border-radius:26px;
+      padding:20px;
+    }
+    .alt:hover{border-color:var(--green)}
+    .alt small{font-weight:900;text-transform:uppercase;letter-spacing:.14em;color:#69706a}
+    .alt h3{margin:6px 0 8px;font-size:20px;line-height:1.1}
+    .alt p{color:#4d554f;line-height:1.45;margin:0;font-size:14px}
+    .all{
+      max-width:1180px;
+      margin:0 auto;
+      padding:0 24px 70px;
+    }
+    .section-head{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-bottom:22px}
+    .section-head h2{font-size:48px;line-height:1;margin:6px 0 0}
+    .section-head p{max-width:520px;color:#4d554f;line-height:1.45}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .program{
+      background:white;
+      border:1px solid rgba(24,34,29,.1);
+      border-radius:26px;
+      padding:22px;
+      box-shadow:0 6px 16px rgba(0,0,0,.04);
+      transition:.2s ease;
+    }
+    .program:hover{transform:translateY(-4px);border-color:var(--green);box-shadow:0 16px 30px rgba(0,0,0,.1)}
+    .picon{
+      width:48px;
+      height:48px;
+      display:grid;
+      place-items:center;
+      background:rgba(5,179,92,.1);
+      color:var(--green);
+      border-radius:18px;
+      font-size:24px;
+    }
+    .program h3{font-size:21px;line-height:1.1;margin:16px 0 8px}
+    .program p{font-size:14px;color:#4d554f;line-height:1.45}
+    @media(max-width:860px){
+      .hero-grid,.result-grid,.diffs,.cards{grid-template-columns:1fr}
+      h1{font-size:48px;letter-spacing:-2px}
+      .question h2,.section-head h2{font-size:34px}
+      .result-main h2{font-size:32px}
+      .mini-grid{grid-template-columns:repeat(2,1fr)}
+      .section-head{display:block}
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="blob1"></div>
+    <div class="blob2"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <div class="pill">🎓 Facultad de Educación · Universidad de los Andes</div>
+        <h1>Encuentra tu licenciatura ideal</h1>
+        <p class="lead">Responde 4 preguntas rápidas y descubre cuál programa se conecta más con tus intereses, tu forma de aprender y el tipo de profe que podrías ser.</p>
+        <div class="benefit">
+          <div class="iconbox">✨</div>
+          <div>
+            <p class="eyebrow">Beneficio destacado</p>
+            <h2>Todas las licenciaturas tienen beca del 66%</h2>
+            <p>Este apoyo aplica durante toda la carrera para estudiantes admitidos/as.</p>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="primary" onclick="startQuiz()">Empezar el quiz →</button>
+          <a class="btn secondary" href="https://educacion.uniandes.edu.co/es/programas/licenciaturas" target="_blank">Ver todas las licenciaturas</a>
+        </div>
+      </div>
+      <div class="side-card">
+        <div class="side-inner">
+          <div class="side-top">
+            <div>
+              <p class="eyebrow" style="color:rgba(255,255,255,.55)">Mapa rápido</p>
+              <h2>9 rutas para enseñar y transformar</h2>
+            </div>
+            <div style="font-size:32px;color:var(--yellow)">✦</div>
+          </div>
+          <div class="mini-grid" id="miniGrid"></div>
+          <div class="green-note"><b>Beca del 66%</b><br/>Todas las licenciaturas cuentan con este apoyo durante toda la carrera para estudiantes admitidos/as.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="diffs">
+    <div class="diff"><div class="num">1</div><h3>Beca del 66% para admitidos/as</h3><p>Todas las licenciaturas cuentan con una beca del 66% durante toda la carrera.</p></div>
+    <div class="diff"><div class="num">2</div><h3>Doble fuerza: disciplina + pedagogía</h3><p>Aprendes profundamente un campo de conocimiento y cómo enseñarlo con sentido, rigor y creatividad.</p></div>
+    <div class="diff"><div class="num">3</div><h3>Formación con práctica y acompañamiento</h3><p>La experiencia combina cursos, investigación, práctica profesional y cercanía con profes de alto nivel.</p></div>
+  </section>
+
+  <section class="quiz-section" id="quiz">
+    <div class="quiz-card">
+      <div class="bar"><div id="progress"></div></div>
+      <div id="questionBox" class="question"></div>
+      <div id="results" class="results"></div>
+    </div>
+  </section>
+
+  <section class="all">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Explora también</p>
+        <h2>Todas las rutas posibles</h2>
+      </div>
+      <p>Cada licenciatura combina formación disciplinar, pedagogía, investigación y práctica profesional.</p>
+    </div>
+    <div class="cards" id="programCards"></div>
+  </section>
+
+<script>
+const programs = [
+  {id:"artes", name:"Licenciatura en Artes", icon:"🎨", tagline:"Para quienes quieren enseñar desde la creación, la sensibilidad y la expresión.", match:"Te puede encantar si disfrutas crear, interpretar, explorar emociones e imaginar experiencias pedagógicas artísticas para distintos contextos.", url:"https://educacion.uniandes.edu.co/es/programas/pregrado/licenciatura-artes", tags:["Creación","Expresión","Didáctica del arte"]},
+  {id:"biologia", name:"Licenciatura en Biología", icon:"🔬", tagline:"Para quienes quieren entender la vida y enseñar a cuidar el mundo natural.", match:"Puede ser tu ruta si te interesa el funcionamiento de los organismos vivos, la biodiversidad, el ambiente y el pensamiento científico.", url:"https://educacion.uniandes.edu.co/es/programas/pregrado/licenciatura-biologia", tags:["Vida","Ambiente","Ciencia"]},
+  {id:"infantil", name:"Licenciatura en Educación Infantil", icon:"🧸", tagline:"Para quienes quieren acompañar los primeros años, donde todo empieza.", match:"Te puede gustar si quieres promover el desarrollo infantil, diseñar experiencias flexibles y rigurosas, y trabajar con niños y niñas en sus primeros años.", url:"https://educacion.uniandes.edu.co/es/programas/pregrado/licenciatura-educacion-infantil", tags:["Infancia","Desarrollo","Acompañamiento"]},
+  {id:"espanol", name:"Licenciatura en Español y Filología", icon:"📚", tagline:"Para quienes quieren enseñar a leer el mundo, escribirlo y discutirlo.", match:"Es una gran opción si te mueven la literatura, el lenguaje, la escritura, la interpretación textual y la construcción de comunidades lectoras.", url:"https://educacion.uniandes.edu.co/es/programas/pregrado/licenciatura-espanol-filologia", tags:["Lenguaje","Literatura","Comunicación"]},
+  {id:"filosofia", name:"Licenciatura en Filosofía", icon:"🧠", tagline:"Para quienes quieren enseñar a pensar, preguntar y argumentar mejor.", match:"Puede ser para ti si disfrutas cuestionar supuestos, analizar ideas, leer clásicos y promover pensamiento crítico, ético y político en el aula.", url:"https://educacion.uniandes.edu.co/es/programas/pregrado/licenciatura-filosofia", tags:["Pensamiento crítico","Ética","Argumentación"]},
+  {id:"fisica", name:"Licenciatura en Física", icon:"⚛️", tagline:"Para quienes quieren explicar fenómenos y despertar curiosidad científica.", match:"Te puede encajar si te gusta buscar explicaciones sobre fenómenos universales, resolver problemas y ayudar a otros a descubrir respuestas por sí mismos.", url:"https://educacion.uniandes.edu.co/es/programas/pregrado/licenciatura-fisica", tags:["Fenómenos","Problemas","Ciencia"]},
+  {id:"historia", name:"Licenciatura en Historia", icon:"🏛️", tagline:"Para quienes quieren conectar pasado, presente y sociedad desde el aula.", match:"Puede ser tu camino si te interesan los fenómenos sociales, la investigación histórica y las prácticas pedagógicas que ayudan a comprender el país y el mundo.", url:"https://educacion.uniandes.edu.co/es/programas/pregrado/licenciatura-historia", tags:["Sociedad","Memoria","Investigación"]},
+  {id:"matematicas", name:"Licenciatura en Matemáticas", icon:"📐", tagline:"Para quienes quieren convertir los problemas difíciles en ideas posibles.", match:"Es una muy buena opción si te atrae describir, analizar y resolver problemas, y diseñar experiencias para desarrollar pensamiento cuantitativo.", url:"https://educacion.uniandes.edu.co/es/programas/pregrado/licenciatura-matematicas", tags:["Problemas","Modelos","Lógica"]},
+  {id:"quimica", name:"Licenciatura en Química", icon:"🧪", tagline:"Para quienes quieren experimentar, transformar y enseñar ciencia con sentido.", match:"Te puede gustar si te interesan las explicaciones científicas, las situaciones reales de producción de conocimiento y el diseño de experiencias para promover pensamiento científico.", url:"https://educacion.uniandes.edu.co/es/programas/pregrado/licenciatura-quimica", tags:["Experimentos","Laboratorio","Ciencia"]}
+];
+
+const questions = [
+  {title:"Cuando imaginas una clase increíble, ¿qué está pasando?", helper:"Elige la escena que más te emociona.", answers:[
+    {label:"Alguien crea, dibuja, actúa o expresa algo que no sabía cómo decir.", scores:{artes:4, infantil:1, espanol:1}},
+    {label:"Un grupo descubre cómo funciona la vida, la materia o el universo.", scores:{biologia:3, fisica:3, quimica:3, matematicas:1}},
+    {label:"Niños y niñas exploran, juegan y aprenden en sus primeros años.", scores:{infantil:5, artes:1}},
+    {label:"Se debate una idea, un texto, una pregunta o un problema social.", scores:{filosofia:3, historia:3, espanol:3}}
+  ]},
+  {title:"¿Qué tipo de pregunta te atrapa más?", helper:"Piensa en la pregunta que seguirías conversando horas.", answers:[
+    {label:"¿Cómo expresamos lo que sentimos y vemos?", scores:{artes:5, espanol:1, filosofia:1}},
+    {label:"¿Cómo aprenden y se desarrollan los niños y niñas?", scores:{infantil:5}},
+    {label:"¿Cómo se explica un fenómeno natural o científico?", scores:{fisica:3, biologia:3, quimica:3}},
+    {label:"¿Cómo entendemos una sociedad, una historia, una idea o un texto?", scores:{historia:3, filosofia:3, espanol:3}},
+    {label:"¿Cómo resolvemos problemas usando lógica, patrones o modelos?", scores:{matematicas:5, fisica:1}}
+  ]},
+  {title:"¿Qué herramienta te gustaría llevar al aula?", helper:"No tiene que ser literal: piensa en tu forma de enseñar.", answers:[
+    {label:"Un taller creativo: imágenes, cuerpo, sonido, materiales y conversación.", scores:{artes:5, infantil:1}},
+    {label:"Un laboratorio o salida para observar, experimentar y comprobar.", scores:{biologia:3, quimica:3, fisica:2}},
+    {label:"Un cuento, una pregunta, una rutina de juego y mucha observación.", scores:{infantil:4, espanol:1}},
+    {label:"Textos, archivos, debates, argumentos y contexto.", scores:{espanol:3, filosofia:3, historia:3}},
+    {label:"Retos, datos, modelos, patrones y problemas de la vida real.", scores:{matematicas:5, fisica:2}}
+  ]},
+  {title:"¿Qué cambio te gustaría provocar como profe?", helper:"Esta respuesta ayuda a afinar el resultado final.", answers:[
+    {label:"Que más personas confíen en su creatividad y su voz.", scores:{artes:4, espanol:2}},
+    {label:"Que la infancia tenga mejores oportunidades desde el comienzo.", scores:{infantil:5}},
+    {label:"Que la ciencia se sienta cercana, útil y emocionante.", scores:{biologia:2, fisica:2, quimica:2, matematicas:1}},
+    {label:"Que estudiantes lean críticamente la sociedad y participen mejor en ella.", scores:{historia:3, filosofia:3, espanol:2}},
+    {label:"Que nadie le tenga miedo a pensar con números, modelos o problemas.", scores:{matematicas:5, fisica:1}}
+  ]}
+];
+
+let step = 0;
+let answers = [];
+
+function renderMini(){
+  document.getElementById("miniGrid").innerHTML = programs.map(p => 
+    `<div class="mini"><span>${p.icon}</span>${p.name.replace("Licenciatura en ","")}</div>`
+  ).join("");
+}
+function renderCards(){
+  document.getElementById("programCards").innerHTML = programs.map(p => `
+    <a class="program" href="${p.url}" target="_blank">
+      <div class="picon">${p.icon}</div>
+      <h3>${p.name}</h3>
+      <p>${p.tagline}</p>
+      <div class="tags">${p.tags.map(t=>`<span class="tag" style="background:#f5f3ec;color:#3d473f">${t}</span>`).join("")}</div>
+    </a>
+  `).join("");
+}
+function startQuiz(){
+  document.getElementById("quiz").style.display = "block";
+  document.getElementById("quiz").scrollIntoView({behavior:"smooth", block:"start"});
+  step = 0;
+  answers = [];
+  renderQuestion();
+}
+function goBack(){
+  if(!answers.length) return;
+  answers.pop();
+  step = Math.max(0, answers.length);
+  renderQuestion();
+}
+function choose(i){
+  answers.push(questions[step].answers[i]);
+  if(answers.length < questions.length){
+    step++;
+    renderQuestion();
+  } else {
+    renderResults();
+  }
+}
+function scores(){
+  const s = {};
+  programs.forEach(p => s[p.id]=0);
+  answers.forEach(a => Object.entries(a.scores).forEach(([id,v]) => s[id]+=v));
+  return s;
+}
+function ranked(){
+  const s = scores();
+  return [...programs].sort((a,b)=>s[b.id]-s[a.id]);
+}
+function renderQuestion(){
+  document.getElementById("results").style.display = "none";
+  document.getElementById("questionBox").style.display = "block";
+  document.getElementById("progress").style.width = Math.round((answers.length/questions.length)*100) + "%";
+  const q = questions[step];
+  document.getElementById("questionBox").innerHTML = `
+    <div class="q-meta">
+      <div class="q-chip">Pregunta ${step+1} de ${questions.length}</div>
+      ${answers.length ? `<button class="back" onclick="goBack()">Volver a la anterior</button>` : ""}
+    </div>
+    <h2>${q.title}</h2>
+    <p>${q.helper}</p>
+    <div class="answers">
+      ${q.answers.map((a,i)=>`<button class="answer" onclick="choose(${i})"><span>${a.label}</span><span class="arrow">→</span></button>`).join("")}
+    </div>
+  `;
+}
+function resetQuiz(){
+  startQuiz();
+}
+function renderResults(){
+  document.getElementById("progress").style.width = "100%";
+  document.getElementById("questionBox").style.display = "none";
+  const [top, second, third] = ranked();
+  document.getElementById("results").style.display = "block";
+  document.getElementById("results").innerHTML = `
+    <div class="q-meta">
+      <div class="q-chip">Resultado listo</div>
+      <button class="secondary" onclick="resetQuiz()" style="padding:10px 16px">↻ Repetir quiz</button>
+    </div>
+    <div class="result-grid">
+      <div class="result-main">
+        <div class="result-head">
+          <div class="result-icon">${top.icon}</div>
+          <div>
+            <p class="eyebrow" style="color:rgba(255,255,255,.55)">Tu match principal</p>
+            <h2>${top.name}</h2>
+          </div>
+        </div>
+        <div class="tagline">${top.tagline}</div>
+        <p class="match">${top.match}</p>
+        <div class="tags">${top.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+        <div class="result-buttons">
+          <a class="btn green-btn" href="${top.url}" target="_blank">Conocer el programa →</a>
+          <a class="btn ghost-btn" href="https://educacion.uniandes.edu.co/es/programas/licenciaturas" target="_blank">Comparar licenciaturas</a>
+        </div>
+      </div>
+      <div class="side-results">
+        ${[second, third].map((p,i)=>`
+          <a class="alt" href="${p.url}" target="_blank">
+            <small>Opción ${i+2}</small>
+            <h3>${p.icon} ${p.name}</h3>
+            <p>${p.tagline}</p>
+          </a>
+        `).join("")}
+        <div class="alt" style="background:rgba(5,179,92,.1);border-color:rgba(5,179,92,.3)">
+          <small style="color:#047d44">Importante</small>
+          <h3>Este resultado no te encierra.</h3>
+          <p>La idea es abrir una conversación: puedes usarlo para pedir asesoría, comparar planes de estudio o asistir a una experiencia tipo estudiante por un día.</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+renderMini();
+renderCards();
+</script>
+</body>
+</html>
