@@ -408,32 +408,32 @@ const programs = [
 ];
 
 const questions = [
-  {title:"Cuando imaginas una clase increíble, ¿qué está pasando?", helper:"Elige la escena que más te emociona.", answers:[
-    {label:"Alguien crea, dibuja, actúa o expresa algo que no sabía cómo decir.", scores:{artes:4, infantil:1, espanol:1}},
-    {label:"Un grupo descubre cómo funciona la vida, la materia o el universo.", scores:{biologia:3, fisica:3, quimica:3, matematicas:1}},
-    {label:"Niños y niñas exploran, juegan y aprenden en sus primeros años.", scores:{infantil:5, artes:1}},
-    {label:"Se debate una idea, un texto, una pregunta o un problema social.", scores:{filosofia:3, historia:3, espanol:3}}
+  {title:"¿Qué tipo de experiencia de aprendizaje te gustaría diseñar?", helper:"Piensa menos en la materia y más en lo que quisieras que pase en el aula.", answers:[
+    {label:"Una experiencia sensible y creativa, donde estudiantes exploren, expresen y construyan con distintos lenguajes.", scores:{artes:4, infantil:1, espanol:1}},
+    {label:"Una experiencia de exploración, observación y descubrimiento para hacerse preguntas sobre el mundo.", scores:{biologia:3, fisica:3, quimica:3, matematicas:1}},
+    {label:"Una experiencia cercana, cuidadosa y flexible, donde el juego, el vínculo y la curiosidad sean centrales.", scores:{infantil:5, artes:1}},
+    {label:"Una experiencia de conversación, lectura crítica y argumentación para comprender ideas, textos o realidades sociales.", scores:{filosofia:3, historia:3, espanol:3}}
   ]},
-  {title:"¿Qué tipo de pregunta te atrapa más?", helper:"Piensa en la pregunta que seguirías conversando horas.", answers:[
-    {label:"¿Cómo expresamos lo que sentimos y vemos?", scores:{artes:5, espanol:1, filosofia:1}},
-    {label:"¿Cómo aprenden y se desarrollan los niños y niñas?", scores:{infantil:5}},
-    {label:"¿Cómo se explica un fenómeno natural o científico?", scores:{fisica:3, biologia:3, quimica:3}},
-    {label:"¿Cómo entendemos una sociedad, una historia, una idea o un texto?", scores:{historia:3, filosofia:3, espanol:3}},
-    {label:"¿Cómo resolvemos problemas usando lógica, patrones o modelos?", scores:{matematicas:5, fisica:1}}
+  {title:"¿Qué tipo de aprendizaje te interesa promover?", helper:"Elige el aprendizaje que más te gustaría ver crecer en otras personas.", answers:[
+    {label:"Aprender a crear, interpretar y comunicar lo que a veces no cabe en una respuesta única.", scores:{artes:5, espanol:1, filosofia:1}},
+    {label:"Aprender desde la infancia: explorar, nombrar el mundo, convivir y desarrollar capacidades desde el comienzo.", scores:{infantil:5}},
+    {label:"Aprender a pensar científicamente: observar, formular hipótesis, experimentar y construir explicaciones.", scores:{fisica:3, biologia:3, quimica:3}},
+    {label:"Aprender a leer críticamente la sociedad, la historia, los textos y las ideas que nos rodean.", scores:{historia:3, filosofia:3, espanol:3}},
+    {label:"Aprender a resolver problemas, reconocer patrones, modelar situaciones y tomar decisiones con evidencia.", scores:{matematicas:5, fisica:1}}
   ]},
-  {title:"¿Qué herramienta te gustaría llevar al aula?", helper:"No tiene que ser literal: piensa en tu forma de enseñar.", answers:[
-    {label:"Un taller creativo: imágenes, cuerpo, sonido, materiales y conversación.", scores:{artes:5, infantil:1}},
-    {label:"Un laboratorio o salida para observar, experimentar y comprobar.", scores:{biologia:3, quimica:3, fisica:2}},
-    {label:"Un cuento, una pregunta, una rutina de juego y mucha observación.", scores:{infantil:4, espanol:1}},
-    {label:"Textos, archivos, debates, argumentos y contexto.", scores:{espanol:3, filosofia:3, historia:3}},
-    {label:"Retos, datos, modelos, patrones y problemas de la vida real.", scores:{matematicas:5, fisica:2}}
+  {title:"¿Qué clima de aula te gustaría cultivar?", helper:"El clima también enseña: marca cómo se conversa, se participa y se aprende.", answers:[
+    {label:"Un aula expresiva, experimental y abierta a distintas formas de participación.", scores:{artes:5, infantil:1}},
+    {label:"Un aula curiosa, rigurosa y activa, donde equivocarse haga parte de investigar.", scores:{biologia:3, quimica:3, fisica:2, matematicas:1}},
+    {label:"Un aula segura, afectiva y atenta a los ritmos de cada niño o niña.", scores:{infantil:5}},
+    {label:"Un aula deliberativa, donde se escuche, se argumente y se contrasten puntos de vista.", scores:{espanol:3, filosofia:3, historia:3}},
+    {label:"Un aula retadora, donde cada problema sea una oportunidad para pensar de otra manera.", scores:{matematicas:5, fisica:2}}
   ]},
-  {title:"¿Qué cambio te gustaría provocar como profe?", helper:"Esta respuesta ayuda a afinar el resultado final.", answers:[
-    {label:"Que más personas confíen en su creatividad y su voz.", scores:{artes:4, espanol:2}},
-    {label:"Que la infancia tenga mejores oportunidades desde el comienzo.", scores:{infantil:5}},
-    {label:"Que la ciencia se sienta cercana, útil y emocionante.", scores:{biologia:2, fisica:2, quimica:2, matematicas:1}},
-    {label:"Que estudiantes lean críticamente la sociedad y participen mejor en ella.", scores:{historia:3, filosofia:3, espanol:2}},
-    {label:"Que nadie le tenga miedo a pensar con números, modelos o problemas.", scores:{matematicas:5, fisica:1}}
+  {title:"¿Qué huella pedagógica te gustaría dejar?", helper:"Esta respuesta ayuda a afinar la licenciatura que más se conecta con tu forma de enseñar.", answers:[
+    {label:"Que más personas descubran su voz, su sensibilidad y su capacidad de crear.", scores:{artes:4, espanol:2}},
+    {label:"Que los primeros años de vida estén llenos de mejores oportunidades para aprender y desarrollarse.", scores:{infantil:5}},
+    {label:"Que la ciencia deje de sentirse lejana y se vuelva una forma emocionante de comprender la realidad.", scores:{biologia:2, fisica:2, quimica:2, matematicas:1}},
+    {label:"Que estudiantes comprendan mejor su contexto y participen de manera crítica en la sociedad.", scores:{historia:3, filosofia:3, espanol:2}},
+    {label:"Que nadie le tenga miedo a los problemas complejos, los datos, los modelos o las matemáticas.", scores:{matematicas:5, fisica:1}}
   ]}
 ];
 
